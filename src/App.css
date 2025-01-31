@@ -1,0 +1,461 @@
+#root {
+  /* max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center; */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1, h2, h3, p {
+  margin: 0;
+}
+
+.navbar {
+  position: sticky;
+  top: 0; /* Sticks the navbar to the top of the viewport */
+  z-index: 1000; /* Ensures the navbar stays above all other elements */
+  background-color: #ffffff; /* Background color to prevent transparency issues */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for better visibility */
+  padding: 15px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.navbar li {
+  font-family: "Old Standard TT", serif;
+  font-weight: 400;
+  font-style: normal;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.navbar a {
+  color: #333333; /* Default text color */
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  color: #000000; /* Black on hover for emphasis */
+}
+
+.nav-izvia {
+  justify-items: center;
+}
+
+.nav-name {
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+.nav-role {
+  font-family: "Inter", sans-serif;
+  color: gray;
+}
+
+/* Hides all navbar items except the name on small screens */
+@media (max-width: 768px) {
+  .navbar ul {
+    justify-content: center;
+    gap: 0; /* No extra spacing */
+  }
+  
+  .nav-item {
+    display: none; /* Hide all nav items */
+  }
+
+  .izvia-nav-title {
+    display: flex; /* Keep the name element visible */
+  }
+}
+
+.hero-section {
+  background-color: #f8f4e8;
+  display: flex;
+  justify-content: space-between; /* Align text and image side by side */
+  align-items: center;
+  height: 90vh;
+  padding: 0 12%; /* Add some padding to the sides */
+}
+
+.hero-text {
+  flex: 1; /* Take up equal space */
+  text-align: left; /* Align text to the left */
+}
+
+.hero-section h1 {
+  font-size: 3.1rem;
+  font-family: "Old Standard TT", serif;
+  font-weight: 400;
+}
+
+.hero-text p {
+  font-family: "Inter", sans-serif;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.hero-izvia p{
+  color: gray;
+  font-size: 19px;
+  letter-spacing: 1px;
+  margin-bottom: 35px;
+}
+
+.hero-section button {
+  font-family: "Inter", sans-serif;
+  padding: 10px 10px 10px 5px;
+  letter-spacing: 1px;
+  text-align: left;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 5px;
+  background: #f8f4e8;
+  box-shadow:  20px 20px 50px #d3cfc5,
+             -20px -20px 50px #ffffff;
+}
+
+.hero-section button:hover {
+  background-color: #c4c4c4; /* Black hover effect */
+  transform: scale(1.01);
+}
+
+.mosaic-grid {
+  display: grid;
+  grid-template-areas:
+    "a b c f"
+    "d e e g"
+    "d e e g"
+    "h h h h"; /* Creates an asymmetric grid */
+  gap: 10px;
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+.mosaic-item {
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  /* border-radius: 10px; */
+}
+
+.mosaic-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mosaic-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.item-a { grid-area: a; filter: grayscale(1); }
+.item-b { grid-area: b; filter: grayscale(1); }
+.item-c { grid-area: c; filter: grayscale(1); }
+.item-d { grid-area: d; filter: grayscale(1); }
+.item-e { grid-area: e; filter: grayscale(1); }
+.item-f { grid-area: f; filter: grayscale(1); }
+.item-g { grid-area: g; filter: grayscale(1); }
+.item-h { grid-area: h; max-height: 120px; filter: grayscale(1);}
+
+/* Responsive layout: Stack mosaic on top for smaller screens */
+@media (max-width: 1024px) {
+  .hero-section {
+    flex-direction: column-reverse; /* Moves mosaic on top */
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-text {
+    margin-top: 10vh;
+    text-align: center; /* Centers text */
+  }
+
+  .mosaic-grid {
+    margin-bottom: 20px; /* Adds spacing between mosaic & text */
+  }
+}
+
+.about-section {
+  background-color: #f8f4e8;
+  display: flex;
+  justify-content: space-between; /* Space between text and image */
+  align-items: center; /* Vertically align items */
+  padding: 50px 10%; /* Add padding for spacing */
+  gap: 20px; /* Space between text and image */
+  margin-top: 30px;
+}
+
+.about-image {
+  width: 500px; /* Set a fixed width for the image */
+  height: 500px; /* Make it square */
+  object-fit: cover; /* Maintain aspect ratio while filling the square */
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2); /* Optional: Shadow for depth */
+}
+
+.about-bio {
+  flex: 1; /* Allow the text to take up remaining space */
+  max-width: 600px; /* Limit the text width for better readability */
+  text-align: left;
+}
+
+.about-bio h2 {
+  font-family: "Inter", sans-serif; /* Title font */
+  font-size: 2rem; /* Adjust font size for titles */
+  margin-bottom: 10px;
+  color: #333; /* Dark gray for contrast */
+}
+
+.about-bio p {
+  font-family: "Inter", sans-serif; /* Body text font */
+  font-size: 1.1rem;
+  line-height: 1.7; /* Improve readability */
+  color: #555; /* Slightly lighter gray for body text */
+}
+
+@media (max-width: 768px) {
+  .about-section {
+    flex-direction: column; /* Stack text and image vertically on smaller screens */
+    text-align: center; /* Center align for smaller screens */
+    gap: 30px;
+  }
+
+  .about-image {
+    width: 250px; /* Slightly smaller image for smaller screens */
+    height: 250px;
+  }
+
+  .about-bio {
+    max-width: 100%; /* Use full width for text */
+  }
+}
+
+.short-film {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.short-film-video {
+  width: 75%;
+  /* max-width: 100px;  */
+  height: auto; /* Maintain aspect ratio */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Optional: Shadow for depth */
+}
+
+.short-film-info {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.short-film-info h3 {
+  font-family: "Old Standard TT", serif;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.short-film-info p {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .short-film-info{
+    padding: 50px;
+    margin-top: -10px;
+  }
+
+  .short-film-info p{
+    font-size: 14px;
+    margin-bottom: -30px;
+  }
+}
+
+.skills-section {
+  text-align: center;
+  padding: 50px 10%;
+  background-color: #f8f4e8;
+}
+
+.skills-section h2 {
+  font-family: "Inter", sans-serif;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+  justify-items: center;
+  align-items: center;
+}
+
+.skill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.skill img {
+  width: 180px; /* Set a reasonable size for the icons */
+  height: 180px;
+  object-fit: contain; /* Maintain aspect ratio */
+  margin-bottom: 10px;
+}
+
+.skill p {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  color: #555;
+}
+
+.socials-section {
+  margin-top: 60px;
+}
+
+.social-header {
+  margin-bottom: -20px;
+}
+
+.deviceCont {
+  transform: scale(.8);
+}
+
+.allDevices{
+  display: flex;
+  justify-content: center;
+}
+
+.socials-section h2{
+  font-family: "Inter", sans-serif;
+  text-align: center;
+  font-size: 2rem;
+  /* margin-top: 40px; */
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.socials-section p {
+  font-family: "Inter", sans-serif; /* Body text font */
+  font-size: 1.1rem;
+  line-height: 1.7; /* Improve readability */
+  color: #555; /* Slightly lighter gray for body text */
+  text-align: center;
+  padding-left: 150px;
+  padding-right: 150px;
+}
+
+.carousel-header h2{
+  font-family: "Inter", sans-serif;
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 40px;
+  /* margin-bottom: -50px; */
+  color: #333;
+}
+
+.carousel-header p {
+  font-family: "Inter", sans-serif; /* Body text font */
+  font-size: 1.1rem;
+  line-height: 1.7; /* Improve readability */
+  color: #555; /* Slightly lighter gray for body text */
+  text-align: center;
+  padding-left: 150px;
+  padding-right: 150px;
+  margin-top: 20px;
+  padding-bottom: -60px;
+}
+
+.carousel-container {
+  width: 80%;
+  margin: 0 auto; /* Center the carousel */
+  padding: 20px 0;
+  color: black;
+}
+
+.carousel-image {
+  max-height: 500px; /* Maintain aspect ratio */
+  border-radius: 10px; /* Optional: Add rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add some depth */
+  display: flex;
+  margin: 10px 20px;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: rgb(202, 202, 202) !important;
+}
+
+.contact-section {
+  text-align: center;
+  padding: 50px 10%;
+  background-color: #e6e6e6; /* Light neutral background */
+  padding-bottom: 80px;
+}
+
+.contact-section h2 {
+  font-family: "Old Standard TT", serif;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.contact-info {
+  font-family: "Inter", sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.email-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-family: "Inter", sans-serif;
+  color: #ffffff;
+  background-color: #333333;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.email-button:hover {
+  background-color: #000000; /* Darker background on hover */
+  transform: scale(1.05);
+}
+
+.footer {
+  background-color: #e6e6e6;
+  
+}
+
+.footer p {
+  text-align: center;
+  font-size: 14px;
+  padding-bottom: 5px;
+}
